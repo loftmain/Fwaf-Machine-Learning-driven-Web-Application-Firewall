@@ -7,7 +7,7 @@ Website: http://fsecurify.com
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import os
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 import urllib.parse
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 def loadFile(name):
     directory = str(os.getcwd())
     filepath = os.path.join(directory, name)
-    with open(filepath,'r') as f:
+    with open(filepath,'r', encoding="UTF-8") as f:
         data = f.readlines()
     data = list(set(data))
     result = []
